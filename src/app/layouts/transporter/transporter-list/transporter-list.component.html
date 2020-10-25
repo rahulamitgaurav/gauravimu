@@ -1,0 +1,44 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Transporter Management</mat-card-title>
+        <mat-card-subtitle>Transporters List</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="transporters" class="mat-elevation-z8">
+            <ng-container matColumnDef="serialnumber">
+                <th mat-header-cell *matHeaderCellDef> Sr.No. </th>
+                <td mat-cell class="table-row" *matCellDef="let i=index"> {{i+ 1}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="transporterEmail">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell class="table-row" *matCellDef="let element"> {{element.transporterEmail}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="transporterName">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell class="table-row" *matCellDef="let element"> {{element.transporterName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="transporterMobileNumber">
+                <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+                <td mat-cell class="table-row" *matCellDef="let element"> {{element.transporterMobileNumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell class="table-row" *matCellDef="let element">
+                    <a class="icon" #tooltip="matTooltip" [routerLink]="['/default/transporter/transporter-edit',element.transporterId]" matTooltip="Edit" [matTooltipPosition]="'below'"><i class="material-icons md-24 p5">create</i></a>
+                    <a class="icon" #tooltip2="matTooltip" matTooltip="Delete" (click)="openDialog($event,element.transporterId)" [matTooltipPosition]="'below'">
+                        <i class="material-icons md-24 p5">delete_sweep</i>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

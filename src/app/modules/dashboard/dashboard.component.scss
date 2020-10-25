@@ -1,0 +1,21 @@
+.container {
+    padding: 10px;
+}
+
+.stats-cards {
+    .mat-cards {
+        overflow: hidden;
+    }
+}
+
+table {
+    width: 100%;
+}
+
+mat-paginator {
+    margin-bottom: 20px;
+}
+
+.confirmed-bid {
+    background-color: #81C784;
+}

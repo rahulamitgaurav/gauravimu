@@ -1,0 +1,69 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Test Logic</mat-card-title>
+        <mat-card-subtitle>Test Logic</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="testForm" (ngSubmit)="submittestLogicForm($event)">
+            <div fxLayout="column" fxLayoutGap="15px">
+                <div fxLayout='row' fxLayoutGap="70px">
+                    <div fxFlex="50%">
+                        <mat-form-field class="demo-full-width">
+                            <div fxFlex="30%">
+                                <mat-form-field color="accent">
+                                    <mat-label class="required">Order Date</mat-label>
+                                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="Moment.js datepicker" formControlName="orderDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                    <mat-error *ngIf="testForm.controls['orderdate'].hasError('matDatepickerParse')">Date must be in format (DD/MMM/YYYY)
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="20%">
+                                <mat-form-field color="accent">
+                                    <mat-label class="required">Order Date Time Slot</mat-label>
+                                    <mat-select matNativeControl formControlName="timeslotMasterId" (valueChange)="timeSlotSelected($event)" [errorStateMatcher]="errorStateMatcher">
+                                        <mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.timeslotMasterId">
+                                            {{timeSlot.actualValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="testForm.controls['timeslotMasterId'].hasError('required')">You must make a selection
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="30%">
+                        <mat-form-field color="accent">
+                            <mat-label class="required">Created ON</mat-label>
+                            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="Moment.js datepicker" formControlName="orderDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                            <mat-error *ngIf="testForm.controls['orderdate'].hasError('matDatepickerParse')">Date must be in format (DD/MMM/YYYY)
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- <div fxFlex="20%">
+                        <mat-form-field color="accent">
+                            <mat-label class="required">Created On Time Slot</mat-label>
+                            <mat-select matNativeControl formControlName="timeslotMasterId" (valueChange)="timeSlotSelected($event)" [errorStateMatcher]="errorStateMatcher">
+                                <mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.timeslotMasterId">
+                                    {{timeSlot.actualValue}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="testForm.controls['timeslotMasterId'].hasError('required')">You must make a selection
+                            </mat-error>
+                        </mat-form-field>
+                    </div> -->
+                </div>
+                
+                      
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <!-- <button type="button" mat-raised-button class="saveDraftBtn" (click)="saveOrderAsDraft($event)">Save as Draft</button> -->
+                    <button type="submit" mat-raised-button color="primary">Submit</button>
+                    <button type="button" mat-raised-button color="warn" (click)="resetTestForm()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

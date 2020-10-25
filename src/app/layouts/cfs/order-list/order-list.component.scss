@@ -1,0 +1,32 @@
+@import './../../../../assets/scss/variable.scss';
+table {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+    ;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.table-title {
+    font-size: $table-title-font-size;
+    text-align: center;
+    font-weight: 600;
+}
+
+.table-row {
+    font-size: $table-row-font-size;
+    text-align: center;
+}
+
+i {
+    color: #3F51B5
+}
+
+.filter-wrapper {
+    padding-top: 5px;
+}
