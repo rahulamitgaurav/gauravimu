@@ -13,13 +13,12 @@ export class BidsComponent{
   @Input() bids: Bid[];
 
   displayedColumns: string[] = [
-    'Bid ID',
-    'SubOrder ID',
+    'subOrderId',
     'bidName',
     'bidValue',
     'biduserStatus',
-    'bidStatus'
-
+    'originalRate',
+    'exhibitionDate'
   ];
   constructor() { }
 

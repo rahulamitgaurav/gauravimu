@@ -11,10 +11,10 @@ export class SubordersComponent{
   @Input() subOrders: subOrder[];
   displayedColumns: string[] = [
     'expandIcon',
-    'SubOrder ID',
+    'subOrderId',
     'orderId',
-    'subOrderTotal',
-    'CutOffTime',
+    'subOrderTotalMargin',
+    'SubOrderDate',
     'containerMasterName',
     'weightDesc',
     'suborderStatus'
